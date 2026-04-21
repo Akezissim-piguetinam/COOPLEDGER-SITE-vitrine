@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoopLedger</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+    <header>
+        <a class="Logo" href="#">CoopLedger</a>
+        <nav>
+            <a href="#Acceuil">Acceuil</a>
+            <a href="#Probleme">Problème</a>
+            <a href="#Solution">Notre solution</a>
+            <a href="#Prototypet">Prototype</a>
+        </nav>
+    </header>
+    <main>
+        <section id="Acceuil" class="nature">
+            <h1 class="titre">Améliorons la confiance au sein de l'agriculture Togolaise et son apport financier.</h1>
+            <h2 class="sous-titre"><strong>CoopLedger</strong> Sécurise la gouvernance des coopératives agricoles grâce à la puissance de la Blockchain. Transparence totale, gestion immutable et prospérité partagée pour chaque agriculteur.</h2>
+            <div class="cta" style="display: flex; justify-content: center;">
+                <button class="Cta1">Explorer la solution</button>
+                <button class="Cta2">Voir le prototype</button>
+            </div>
+        </section>
+
+        <section id="Probleme">
+            <h3>Les problèmes rencontrés avec l'actuel modèle de gestion des coopérative :</h3>
+            <div class="box">
+                <p><strong>Plus de 60%</strong> des coopératives agricoles togolaises tiennent leur comptabilité uniquement en cash et en papier; ce qui entraîne <strong>l'insécurité des registres</strong> (cahier) car ceux-ci peuvent être endommagés ou perdus; Cette situation entraîne aussi <strong>l'informalité des données</strong> et une <strong>perte de revenu</strong> dans le domaine agricole dû à l'usage d'un unique moyen de payement.</p>
+                <p><strong>15 à 20%</strong> des fonds collectifs de coopératives africaine font l'objet de <strong>detournement</strong> documentés chaque année.</p>
+                <p><strong>70% des membres</strong> de coopératives citent le <strong>manque de transparence</strong> comme principale raison de leur <strong>méfiance envers leur coopérative</strong>.</p>
+            </div>
+        </section>
+
+        <section id="Solution">
+            <h3>La Blockchain est la solution à ce problème.</h3>
+            <div>
+                <p>La Blockchain est une technologie de stockage et de transmission d'informations décentralisée, sécurisée et transparente fonctionnant sans organe central de conttrôle. Voici ses avantages :</p>
+                <div class="box">
+                    <p><strong>La sécurité infaillible :</strong> Fini les registres papiers perdus ou modifiés. Chaque transaction est gravée dans la Blockchain, garantissant une preuve d'existence permanente.</p>
+                    <p><strong>La transparence :</strong> Chaque membre suit l'état des comptes depuis son smartphone. La clarté financière attire les investisseurs et booste les revenus de 30 à 50%.</p>
+                    <p><strong>Gouvernance partagée :</strong> Les décisions ne se prennent plus dans l'ombre. Grâce aux Smart Contracts, chaque vote est certifié et infalsifiable.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="Prototype">
+            <h3>Nous vous présentons les maquettes de CoopLedger :</h3>
+            <div>
+                <img src="maquette.jpg">
+            </div>
+            <div>
+                <h3>Le compte à rebours du lancemant du projet a commencé !</h3>
+                <p>Le projet <strong>CoopLedger</strong> débute dans :</p>
+                <div id="timer" class="temps" style="display: flex; gap: 16px; text-align: center; font-family: sans-serif;">
+                    <div class="temps-box"><span id="j">00</span> Jours</div>
+                    <div class="temps-box"><span id="h">00</span> Heures</div>
+                    <div class="temps-box"><span id="m">00</span> Minutes</div>
+                    <div class="temps-box"><span id="s">00</span> Secondes</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <h4>CoopLedger 2026- MIABE HACKATHON.</h4>
+        <p>Build in<br> April 2026.</p>        
+    </footer>
+
+    <script>
+        const dateFin = new Date("2026-05-02T00:00").getTime();
+        const x = setInterval(() => {
+            const maintenant = new Date().getTime();
+            const ecart = dateFin - maintenant;
+
+            if (ecart < 0) {
+                clearInterval(x);
+                document.getElementById("timer").innerHTML = "Le projet a débuté !";
+                return;
+            } 
+
+            if (ecart < 1000* 60 * 60 * 24) {
+                document.getElementById("timer").style.color = "#D32F2F";
+            } else {
+                document.getElementById("timer").style.color = "green";
+            }
+
+            document.getElementById("j").innerText = String(Math.floor(ecart / (1000 * 60 * 60* 24))).padStart(2, '0');
+            document.getElementById("h").innerText = String(Math.floor((ecart % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+            document.getElementById("m").innerText = String(Math.floor((ecart % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+            document.getElementById("s").innerText = String(Math.floor((ecart % (1000 * 60)) / 1000)).padStart(2, '0');
+        }, 1000); 
+    </script>
+</body>
+</html>
